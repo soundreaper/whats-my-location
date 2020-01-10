@@ -22,7 +22,8 @@ def favicon():
 @app.route('/')
 def index():
     """Return homepage."""
-    ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    headers_list = request.headers.getlist("X-Forwarded-For")
+    ip = headers_list[0] if headers_list else request.remote_addr
 
     # handler = ipinfo.getHandler(IPINFO_API_KEY)
     # details = handler.getDetails(ip_address).all
