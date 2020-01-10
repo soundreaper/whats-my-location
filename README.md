@@ -1,4 +1,4 @@
-# Editing Tutorials
+# Where Am I?
 
 A simple web app that shows your approximate location and similar stats based on IP address.<br>
 Use the app [here](https://whereami-sp.herokuapp.com/).
