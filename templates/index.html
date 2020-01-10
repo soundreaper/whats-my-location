@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Where Am I?</title>
+</head>
+<body>
+
+<script>
+    new WOW().init();
+</script>
+
+<!-- The code below extends base.html with the base of our website and adds the search bar and 3 buttons for
+Search, trending, and Random. This is also contained inside another row and column so the search bar does not extend
+across the entire page. -->
+{% extends 'base.html' %}
+
+{% block gifs %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">You Are Here:</h1>
+        <hr class="my-4">
+        <div class="card-group animated wow slideInUp">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">IP Address</h2>
+                    <hr class="my-4">
+                    <h4>{{ ip }}</h4>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">City</h2>
+                    <hr class="my-4">
+                    <h4>{{ city }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-group animated wow slideInUp">
+            <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h2 class="card-title">Region</h2>
+                        <hr class="my-4">
+                        <h4>{{ region }}</h4>
+                    </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Country</h2>
+                    <hr class="my-4">
+                    <h4>{{ country }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-group animated wow slideInUp">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Zipcode</h2>
+                    <hr class="my-4">
+                    <h4>{{ postal }}</h4>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Timezone</h2>
+                    <hr class="my-4">
+                    <h4>{{ timezone }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+  background: #333333 !important;
+}
+
+.col-12 {
+  background: #E83151 !important;
+}
+
+.main-logo {
+  margin: auto;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  font-size: 108px;
+  padding: 40px;
+}
+
+.btn {
+  font-family: 'Roboto Condensed', sans-serif;
+}
