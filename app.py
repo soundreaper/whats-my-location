@@ -27,7 +27,7 @@ def index():
 
     handler = ipinfo.getHandler(IPINFO_API_KEY)
     details = handler.getDetails(ip_address).all
-    ip = details['ip']
+    ip = ip_address
     city = details['city']
     region = details['region']
     country = details['country_name']
