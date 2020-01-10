@@ -8,8 +8,8 @@ app = Flask(__name__)
 Loads API key from Heroku configuration variables (confirgured on Heroku dashboard)
 """
 
-#IPINFO_API_KEY = os.getenv('IPINFO_API_KEY')
-IPINFO_API_KEY = '10ad7587605c57'
+IPINFO_API_KEY = os.getenv('IPINFO_API_KEY')
+GMAP_API_KEY = os.getenv('GMAP_API_KEY')
 
 """
 The code below loads the little icon that shows up at the top of the browser next to the website Title.
@@ -33,7 +33,7 @@ def index():
     timezone = details['timezone']
     latitude = details['latitude']
     longitude = details['longitude']
-    img_url = "https://maps.googleapis.com/maps/api/staticmap?center=&zoom=16&size=800x300&sensor=false&markers=color:red%7C" + latitude + "," + longitude + "&key=AIzaSyDov4IfB4ihldZh0wMRBonCz2sBGFr0Y_o"
+    img_url = "https://maps.googleapis.com/maps/api/staticmap?center=&zoom=16&size=800x300&sensor=false&markers=color:red%7C" + latitude + "," + longitude + "&key=" + GMAP_API_KEY
 
     # Render the 'index.html' template, passing all parsed parameters
     return render_template("index.html", ip=ip, city=city, region=region, country=country, postal=postal, timezone=timezone, latitude=latitude, longitude=longitude, img_url=img_url)
