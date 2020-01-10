@@ -26,6 +26,13 @@ def index():
     handler = ipinfo.getHandler(IPINFO_API_KEY)
     details = handler.getDetails().all
     ip = details['ip']
+    city = details['city']
+    region = details['region']
+    country = details['country_name']
+    postal = details['postal']
+    timezone = details['timezone']
+    latitude = details['latitude']
+    longitude = details['longitude']
 
     # Render the 'index.html' template, passing all parsed parameters
-    return render_template("index.html", ip=ip)
+    return render_template("index.html", ip=ip, city=city, region=region, country=country, postal=postal, timezone=timezone, latitude=latitude, longitude=longitude)
