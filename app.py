@@ -24,7 +24,8 @@ def index():
     """Return homepage."""
     
     handler = ipinfo.getHandler(IPINFO_API_KEY)
-    details = handler.getDetails()
+    details = handler.getDetails().all
+    ip = details['ip']
 
     # Render the 'index.html' template, passing all parsed parameters
-    return render_template("index.html", details=details)
+    return render_template("index.html", ip=ip)
