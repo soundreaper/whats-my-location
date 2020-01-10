@@ -23,19 +23,19 @@ def favicon():
 def index():
     """Return homepage."""
     headers_list = request.headers.getlist("X-Forwarded-For")
-    ip = headers_list[0] if headers_list else request.remote_addr
+    ip_address = headers_list[0] if headers_list else request.remote_addr
 
-    # handler = ipinfo.getHandler(IPINFO_API_KEY)
-    # details = handler.getDetails(ip_address).all
-    # ip = details['ip']
-    # city = details['city']
-    # region = details['region']
-    # country = details['country_name']
-    # postal = details['postal']
-    # timezone = details['timezone']
-    # latitude = details['latitude']
-    # longitude = details['longitude']
-    # img_url = "https://maps.googleapis.com/maps/api/staticmap?center=&zoom=16&size=800x300&sensor=false&markers=color:red%7C" + latitude + "," + longitude + "&key=" + GMAP_API_KEY
+    handler = ipinfo.getHandler(IPINFO_API_KEY)
+    details = handler.getDetails(ip_address).all
+    ip = details['ip']
+    city = details['city']
+    region = details['region']
+    country = details['country_name']
+    postal = details['postal']
+    timezone = details['timezone']
+    latitude = details['latitude']
+    longitude = details['longitude']
+    img_url = "https://maps.googleapis.com/maps/api/staticmap?center=&zoom=16&size=800x300&sensor=false&markers=color:red%7C" + latitude + "," + longitude + "&key=" + GMAP_API_KEY
 
     # Render the 'index.html' template, passing all parsed parameters
-    return render_template("index.html", ip=ip)
+    return render_template("index.html", ip=ip, city=city, region=region, country=country, postal=postal, timezone=timezone, img_url=img_url)
