@@ -1,5 +1,4 @@
-from flask import Flask, render_template,request, send_from_directory
-from requests import get
+from flask import Flask, render_template,request, send_from_directory, request
 import os
 import ipinfo
 
@@ -23,11 +22,11 @@ def favicon():
 @app.route('/')
 def index():
     """Return homepage."""
-    ip_address = get('https://api.ipify.org').text
+    ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
 
     handler = ipinfo.getHandler(IPINFO_API_KEY)
     details = handler.getDetails(ip_address).all
-    ip = ip_address
+    ip = details['ip']
     city = details['city']
     region = details['region']
     country = details['country_name']
